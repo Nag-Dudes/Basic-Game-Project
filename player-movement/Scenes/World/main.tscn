@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://chei6spnpqi0j"]
+
+[ext_resource type="PackedScene" uid="uid://nweloprbryex" path="res://Scenes/World/ground.tscn" id="1_ntgcc"]
+[ext_resource type="PackedScene" uid="uid://d2mtvrvvfl6va" path="res://Scenes/Player/player.tscn" id="2_qvtyt"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_45tr1"]
+sky_top_color = Color(0.14509805, 0.53333336, 0.9098039, 1)
+sky_horizon_color = Color(0.65882355, 0.8745098, 1, 1)
+ground_bottom_color = Color(0.39607844, 0.48235294, 0.5686275, 1)
+ground_horizon_color = Color(0.72156864, 0.8509804, 0.92156863, 1)
+
+[sub_resource type="Sky" id="Sky_b2h2w"]
+sky_material = SubResource("ProceduralSkyMaterial_45tr1")
+
+[sub_resource type="Environment" id="Environment_bfdir"]
+background_mode = 2
+sky = SubResource("Sky_b2h2w")
+ambient_light_color = Color(0.70980394, 0.8509804, 1, 1)
+ambient_light_energy = 0.5
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.72156864, 0.8666667, 0.9607843, 1)
+fog_density = 0.005
+adjustment_enabled = true
+adjustment_brightness = 1.05
+adjustment_contrast = 1.08
+adjustment_saturation = 1.2
+
+[node name="Main" type="Node3D" unique_id=128029524]
+
+[node name="Ground" parent="." unique_id=930496763 instance=ExtResource("1_ntgcc")]
+
+[node name="Player" parent="." unique_id=1656208362 instance=ExtResource("2_qvtyt")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1092208095]
+transform = Transform3D(0.86602545, 0.35355338, -0.3535534, -0.02393338, 0.7356086, 0.67698395, 0.4994269, -0.5778236, 0.64551747, -5.767967, 30.776663, 17.449564)
+light_color = Color(0.99999946, 0.99917346, 0.8506797, 1)
+light_energy = 1.2
+shadow_enabled = true
+shadow_opacity = 0.7
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1481996361]
+environment = SubResource("Environment_bfdir")
